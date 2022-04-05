@@ -5,10 +5,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int limit = 100_000_000;
+//        int limit = 100_000_000;
+        int limit = 100;
         // Save timestamp at start
         long startTime = System.nanoTime();
-        Primes.printList(limit);
+        Primes.printListOdd(limit);
         // Save timestamp at the end
         long endTime = System.nanoTime();
         long milliseconds = (endTime - startTime) / 1000000;
