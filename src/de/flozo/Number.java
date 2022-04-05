@@ -2,6 +2,8 @@ package de.flozo;
 
 public class Number {
 
+    // Prime check methods
+
     public static boolean isPrime(int number) {
         if ((number == 0) || (number == 1)) {
             return false;
@@ -63,5 +65,36 @@ public class Number {
         return true;
     }
 
+    // Divisor methods
+
+    public static void getAllDivisors(int number) {
+        System.out.print("Divisors of " + number + ": ");
+        int countDivisors = 0;
+        if (number > 1) {
+//            countDivisors++;
+            for (int i = 1; i <= number; i++) {
+                if (number % i == 0) {
+                    countDivisors++;
+                    System.out.print(i + ", ");
+                }
+            }
+            System.out.println("Found " + countDivisors + " divisors.");
+        }
+    }
+
+    public static void getNonTrivialDivisors(int number) {
+        System.out.print("Non-trivial divisors of " + number + ": ");
+        int countDivisors = 0;
+        if (number > 1) {
+//            countDivisors++;
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    countDivisors++;
+                    System.out.print(i + ", ");
+                }
+            }
+            System.out.println("Found " + countDivisors + " non-trivial divisors.");
+        }
+    }
 
 }
