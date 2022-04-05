@@ -2,21 +2,6 @@ package de.flozo;
 
 public class Number {
 
-    private int number;
-//    private boolean odd;
-//    private int numberOfDivisors;
-//    private boolean prime;
-//
-//    public Number(int number) {
-//        this.number = Math.max(number, 0);
-////        this.numberOfDivisors = numberOfDivisors;
-//    }
-
-
-    public static boolean isOdd(int number) {
-        return (number % 2 != 0);
-    }
-
     public static boolean isPrime(int number) {
         if ((number == 0) || (number == 1)) {
             return false;
@@ -30,7 +15,6 @@ public class Number {
         return true;
     }
 
-
     public static boolean isPrimeHalf(int number) {
         if ((number == 0) || (number == 1)) {
             return false;
@@ -43,13 +27,35 @@ public class Number {
         }
         return true;
     }
-
     public static boolean isPrimeSqrt(int number) {
-        if ((number == 0) || (number == 1)) {
+        // 0 and 1 are not prime
+        if (number < 2) {
             return false;
         }
-        // Test all numbers <= number/2
-        for (int i = 2; i <= (Math.sqrt(number)) ; i++) {
+        // Test all numbers > 1 and <= sqrt(number)
+        for (int i = 2; i <= (Math.sqrt(number)); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isPrimeSqrtOdd(int number) {
+        // 0 and 1 are not prime
+        if (number < 2) {
+            return false;
+        }
+        // 2 is prime
+        if (number == 2) {
+            return true;
+        }
+        // check if 2 is divisor
+        if (number % 2 == 0) {
+            return false;
+        }
+        // Test all odd numbers > 2 and <= sqrt(number)
+        for (int i = 3; i <= (Math.sqrt(number)); i += 2) {
             if (number % i == 0) {
                 return false;
             }

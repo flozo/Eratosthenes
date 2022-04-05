@@ -8,7 +8,7 @@ public class Main {
         int limit = 100_000_000;
         // Save timestamp at start
         long startTime = System.nanoTime();
-        printList(limit);
+        Primes.printList(limit);
         // Save timestamp at the end
         long endTime = System.nanoTime();
         long milliseconds = (endTime - startTime) / 1000000;
@@ -18,18 +18,6 @@ public class Main {
 //        System.out.println(duration(8128248));
     }
 
-    public static void printList(int limit) {
-        int count = 0;
-        for (int i = 0; i <= limit; i++) {
-            if (Number.isPrimeSqrt(i)) {
-                count++;
-                System.out.println(i);
-            }
-        }
-        System.out.println("*****");
-        System.out.println(count + " prime numbers found.");
-
-    }
 
     public static String duration(long milliseconds) {
         int ms = (int) milliseconds % 1000;
