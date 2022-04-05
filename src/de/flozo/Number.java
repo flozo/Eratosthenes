@@ -1,5 +1,7 @@
 package de.flozo;
 
+import java.util.ArrayList;
+
 public class Number {
 
     // Prime check methods
@@ -67,6 +69,11 @@ public class Number {
 
     // Divisor methods
 
+    public static boolean isDivisor(int divisorCandidate, int number) {
+        return  (number % divisorCandidate == 0);
+    }
+
+    // Direct print-out version
     public static void getAllDivisors(int number) {
         System.out.print("Divisors of " + number + ": ");
         int countDivisors = 0;
@@ -78,10 +85,11 @@ public class Number {
                     System.out.print(i + ", ");
                 }
             }
-            System.out.println("Found " + countDivisors + " divisors.");
+            System.out.println("Found " + countDivisors + " divisors (including 2 trivial divisors).");
         }
     }
 
+    // Direct print-out version
     public static void getNonTrivialDivisors(int number) {
         System.out.print("Non-trivial divisors of " + number + ": ");
         int countDivisors = 0;
@@ -95,6 +103,39 @@ public class Number {
             }
             System.out.println("Found " + countDivisors + " non-trivial divisors.");
         }
+    }
+
+
+
+    // ArrayList versions
+    public static ArrayList<Integer> getNonTrivialDivisorsList(int number) {
+        ArrayList<Integer> divisors = new ArrayList<>();
+        int countDivisors = 0;
+        if (number > 1) {
+            countDivisors++;
+            for (int i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    countDivisors++;
+                    divisors.add(i);
+                }
+            }
+        }
+        return divisors;
+    }
+
+    public static ArrayList<Integer> getAllDivisorsList(int number) {
+        ArrayList<Integer> divisors = new ArrayList<>();
+//        int countDivisors = 0;
+        if (number > 1) {
+            // Append trivial divisor 1
+//            countDivisors++;
+            divisors.add(1);
+            // Append array of non-trivial divisors
+            divisors.addAll(getNonTrivialDivisorsList(number));
+            // Append number itself as trivial divisor
+            divisors.add(number);
+        }
+        return divisors;
     }
 
 }

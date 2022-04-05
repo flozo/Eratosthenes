@@ -6,12 +6,17 @@ public class Main {
     public static void main(String[] args) {
 
 //        int limit = 100_000_000;
-        int limit = 12;
+        int limit = 120;
         // Save timestamp at start
         long startTime = System.nanoTime();
         Primes.printList6k(limit);
         Number.getAllDivisors(limit);
         Number.getNonTrivialDivisors(limit);
+        System.out.println("=====");
+        System.out.println(Number.getNonTrivialDivisorsList(limit));
+        System.out.println("=====");
+        System.out.println(Number.getAllDivisorsList(limit));
+        System.out.println("=====");
         // Save timestamp at the end
         long endTime = System.nanoTime();
         long milliseconds = (endTime - startTime) / 1000000;
