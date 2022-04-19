@@ -6,9 +6,9 @@ public class Main {
     public static void main(String[] args) {
 
 //        int limit = 100_000_000;
-        int limit = 120;
+        int limit = 100000000;
         // Save timestamp at start
-        long startTime = System.nanoTime();
+        long startTime = System.currentTimeMillis();
         Primes.printList6k(limit);
         Number.getAllDivisors(limit);
         Number.getNonTrivialDivisors(limit);
@@ -18,12 +18,11 @@ public class Main {
         System.out.println(Number.getAllDivisorsList(limit));
         System.out.println("=====");
         // Save timestamp at the end
-        long endTime = System.nanoTime();
-        long milliseconds = (endTime - startTime) / 1000000;
-        String durationString = duration(milliseconds);
-        System.out.println("Sifting time was " + milliseconds + " ms = " + durationString + " (hh:mm:ss.f)");
+        long endTime = System.currentTimeMillis();
+        long siftingTimeMilliseconds = (endTime -startTime);
+        String durationString = duration(siftingTimeMilliseconds);
+        System.out.println("Sifting time was " + siftingTimeMilliseconds + " ms = " + durationString + " (hh:mm:ss.f)");
 
-//        System.out.println(duration(8128248));
     }
 
 
