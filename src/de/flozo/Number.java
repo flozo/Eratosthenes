@@ -6,38 +6,40 @@ public class Number {
 
     // Prime check methods
 
-    public static boolean isPrime(int number) {
-        if ((number == 0) || (number == 1)) {
+    public static boolean isPrime(long number) {
+        // 0 and 1 are not prime
+        if (number < 2L) {
             return false;
         }
         // Test all numbers < number
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
+        for (long i = 2L; i < number; i++) {
+            if (number % i == 0L) {
                 return false;
             }
         }
         return true;
     }
 
-    public static boolean isPrimeHalf(int number) {
-        if ((number == 0) || (number == 1)) {
+    public static boolean isPrimeHalf(long number) {
+        // 0 and 1 are not prime
+        if (number < 2) {
             return false;
         }
         // Test all numbers <= number/2
-        for (int i = 2; i <= (number / 2) ; i++) {
+        for (long i = 2; i <= (number / 2) ; i++) {
             if (number % i == 0) {
                 return false;
             }
         }
         return true;
     }
-    public static boolean isPrimeSqrt(int number) {
+    public static boolean isPrimeSqrt(long number) {
         // 0 and 1 are not prime
         if (number < 2) {
             return false;
         }
         // Test all numbers > 1 and <= sqrt(number)
-        for (int i = 2; i <= (Math.sqrt(number)); i++) {
+        for (long i = 2; i <= (Math.sqrt(number)); i++) {
             if (number % i == 0) {
                 return false;
             }
@@ -45,7 +47,7 @@ public class Number {
         return true;
     }
 
-    public static boolean isPrimeSqrtOdd(int number) {
+    public static boolean isPrimeSqrtOdd(long number) {
         // 0 and 1 are not prime
         if (number < 2) {
             return false;
@@ -59,7 +61,7 @@ public class Number {
             return false;
         }
         // Test all odd numbers > 2 and <= sqrt(number)
-        for (int i = 3; i <= (Math.sqrt(number)); i += 2) {
+        for (long i = 3; i <= (Math.sqrt(number)); i += 2) {
             if (number % i == 0) {
                 return false;
             }
@@ -69,17 +71,17 @@ public class Number {
 
     // Divisor methods
 
-    public static boolean isDivisor(int divisorCandidate, int number) {
+    public static boolean isDivisor(long divisorCandidate, long number) {
         return  (number % divisorCandidate == 0);
     }
 
     // Direct print-out version
-    public static void getAllDivisors(int number) {
+    public static void getAllDivisors(long number) {
         System.out.print("Divisors of " + number + ": ");
-        int countDivisors = 0;
+        long countDivisors = 0;
         if (number > 1) {
 //            countDivisors++;
-            for (int i = 1; i <= number; i++) {
+            for (long i = 1; i <= number; i++) {
                 if (number % i == 0) {
                     countDivisors++;
                     System.out.print(i + ", ");
@@ -90,12 +92,12 @@ public class Number {
     }
 
     // Direct print-out version
-    public static void getNonTrivialDivisors(int number) {
+    public static void getNonTrivialDivisors(long number) {
         System.out.print("Non-trivial divisors of " + number + ": ");
-        int countDivisors = 0;
+        long countDivisors = 0;
         if (number > 1) {
 //            countDivisors++;
-            for (int i = 2; i < number; i++) {
+            for (long i = 2; i < number; i++) {
                 if (number % i == 0) {
                     countDivisors++;
                     System.out.print(i + ", ");
@@ -108,12 +110,12 @@ public class Number {
 
 
     // ArrayList versions
-    public static ArrayList<Integer> getNonTrivialDivisorsList(int number) {
-        ArrayList<Integer> divisors = new ArrayList<>();
-        int countDivisors = 0;
+    public static ArrayList<Long> getNonTrivialDivisorsList(long number) {
+        ArrayList<Long> divisors = new ArrayList<>();
+        long countDivisors = 0;
         if (number > 1) {
             countDivisors++;
-            for (int i = 2; i < number; i++) {
+            for (long i = 2; i < number; i++) {
                 if (number % i == 0) {
                     countDivisors++;
                     divisors.add(i);
@@ -123,13 +125,13 @@ public class Number {
         return divisors;
     }
 
-    public static ArrayList<Integer> getAllDivisorsList(int number) {
-        ArrayList<Integer> divisors = new ArrayList<>();
+    public static ArrayList<Long> getAllDivisorsList(long number) {
+        ArrayList<Long> divisors = new ArrayList<>();
 //        int countDivisors = 0;
         if (number > 1) {
             // Append trivial divisor 1
 //            countDivisors++;
-            divisors.add(1);
+            divisors.add(1L);
             // Append array of non-trivial divisors
             divisors.addAll(getNonTrivialDivisorsList(number));
             // Append number itself as trivial divisor
