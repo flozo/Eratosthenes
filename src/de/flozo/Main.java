@@ -19,7 +19,7 @@ public class Main {
         System.out.println("=====");
         // Save timestamp at the end
         long endTime = System.currentTimeMillis();
-        long siftingTimeMilliseconds = (endTime -startTime);
+        long siftingTimeMilliseconds = (endTime - startTime);
         String durationString = duration(siftingTimeMilliseconds);
         System.out.println("Sifting time was " + siftingTimeMilliseconds + " ms = " + durationString + " (hh:mm:ss.f)");
 

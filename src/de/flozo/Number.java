@@ -26,13 +26,14 @@ public class Number {
             return false;
         }
         // Test all numbers <= number/2
-        for (long i = 2; i <= (number / 2) ; i++) {
+        for (long i = 2; i <= (number / 2); i++) {
             if (number % i == 0) {
                 return false;
             }
         }
         return true;
     }
+
     public static boolean isPrimeSqrt(long number) {
         // 0 and 1 are not prime
         if (number < 2) {
@@ -72,7 +73,7 @@ public class Number {
     // Divisor methods
 
     public static boolean isDivisor(long divisorCandidate, long number) {
-        return  (number % divisorCandidate == 0);
+        return (number % divisorCandidate == 0);
     }
 
     // Direct print-out version
@@ -106,7 +107,6 @@ public class Number {
             System.out.println("Found " + countDivisors + " non-trivial divisors.");
         }
     }
-
 
 
     // ArrayList versions
