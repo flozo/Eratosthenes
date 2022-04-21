@@ -6,13 +6,14 @@ public class Number {
 
     // Prime check methods
 
-    public static boolean isPrime(long number) {
+    // Generic method
+    public static boolean isPrime(long number, long testLimit) {
         // 0 and 1 are not prime
         if (number < 2L) {
             return false;
         }
-        // Test all numbers < number
-        for (long i = 2L; i < number; i++) {
+        // Test all numbers <= testLimit
+        for (long i = 2L; i <= testLimit; i++) {
             if (number % i == 0L) {
                 return false;
             }
@@ -20,32 +21,21 @@ public class Number {
         return true;
     }
 
+    // Specific methods
+
+    public static boolean isPrimeAll(long number) {
+        // Test all numbers <= (number - 1)
+        return isPrime(number, (number - 1));
+    }
+
     public static boolean isPrimeHalf(long number) {
-        // 0 and 1 are not prime
-        if (number < 2) {
-            return false;
-        }
-        // Test all numbers <= number/2
-        for (long i = 2; i <= (number / 2); i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
+        // Test all numbers <= (number / 2)
+        return isPrime(number, (number / 2));
     }
 
     public static boolean isPrimeSqrt(long number) {
-        // 0 and 1 are not prime
-        if (number < 2) {
-            return false;
-        }
-        // Test all numbers > 1 and <= sqrt(number)
-        for (long i = 2; i <= (Math.sqrt(number)); i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
+        // Test all numbers <= sqrt(number)
+        return isPrime(number, (long) (Math.sqrt(number)));
     }
 
     public static boolean isPrimeSqrtOdd(long number) {
@@ -53,7 +43,7 @@ public class Number {
         if (number < 2) {
             return false;
         }
-        // 2 is prime
+        // 2 is the only even prime
         if (number == 2) {
             return true;
         }

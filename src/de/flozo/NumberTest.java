@@ -14,28 +14,28 @@ class NumberTest {
     @org.junit.jupiter.api.Test
     void isPrime_100() {
         for (long j : primeNumbers100) {
-            assertTrue(Number.isPrime(j), j + " expected to be prime!");
+            assertTrue(Number.isPrimeAll(j), j + " expected to be prime!");
         }
     }
 
     @org.junit.jupiter.api.Test
     void isPrime_big() {
         for (long j : bigPrimeNumbers) {
-            assertTrue(Number.isPrime(j), j + " expected to be prime!");
+            assertTrue(Number.isPrimeAll(j), j + " expected to be prime!");
         }
     }
 
     @org.junit.jupiter.api.Test
     void isPrime_composite() {
         for (long j : compositeNumbers) {
-            assertFalse(Number.isPrime(j), j + " expected to be non-prime!");
+            assertFalse(Number.isPrimeAll(j), j + " expected to be non-prime!");
         }
     }
 
     @org.junit.jupiter.api.Test
     void isPrime_other() {
         for (long j : otherNonPrimeNumbers) {
-            assertFalse(Number.isPrime(j), j + " expected to be non-prime!");
+            assertFalse(Number.isPrimeAll(j), j + " expected to be non-prime!");
         }
     }
 
