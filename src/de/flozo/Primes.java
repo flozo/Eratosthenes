@@ -1,7 +1,5 @@
 package de.flozo;
 
-import java.util.function.Function;
-
 public class Primes {
 
     public static void printList(long limit) {

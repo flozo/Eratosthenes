@@ -23,18 +23,18 @@ public class Number {
 
     // Specific methods
 
+    // Test all numbers <= (number - 1)
     public static boolean isPrimeAll(long number) {
-        // Test all numbers <= (number - 1)
         return isPrime(number, (number - 1));
     }
 
+    // Test all numbers <= (number / 2)
     public static boolean isPrimeHalf(long number) {
-        // Test all numbers <= (number / 2)
         return isPrime(number, (number / 2));
     }
 
+    // Test all numbers <= sqrt(number)
     public static boolean isPrimeSqrt(long number) {
-        // Test all numbers <= sqrt(number)
         return isPrime(number, (long) (Math.sqrt(number)));
     }
 
